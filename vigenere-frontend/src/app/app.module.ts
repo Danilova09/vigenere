@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     FlexModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

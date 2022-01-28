@@ -1,31 +1,41 @@
 <div class="main-block" style="max-width: 800px; border: 1px solid red; display: block; margin: 80px auto;">
-  <div fxLayout="row" fxLayoutAlign="space-between center">
-    <mat-form-field appearance="fill">
-      <mat-label>Encode</mat-label>
-      <textarea matInput
-                cdkTextareaAutosize
-                cdkAutosizeMinRows="5"
-      ></textarea>
-    </mat-form-field>
-    <div fxLayout="column" fxLayoutAlign="center center">
-      <div  style="padding-bottom: 17px;">
-        <button mat-button color="primary">
-          <mat-icon>arrow_back</mat-icon>
-        </button>
-        <button mat-button color="primary">
-          <mat-icon>arrow_forward</mat-icon>
-        </button>
+  <form class="form" #f="ngForm">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-form-field appearance="fill">
+        <mat-label>Encode</mat-label>
+        <textarea matInput
+                  cdkTextareaAutosize
+                  cdkAutosizeMinRows="5"
+                  ngModel
+                  name="encode"
+                  #encode="ngModel"
+        ></textarea>
+      </mat-form-field>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div style="padding-bottom: 17px;">
+          <button mat-button color="primary" type="button" (click)="encodePassword()">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <button mat-button color="primary" type="button" (click)="decodePassword()">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput ngModel
+                 #password="ngModel"
+                 name="password">
+        </mat-form-field>
       </div>
       <mat-form-field appearance="fill">
-        <mat-label>Input</mat-label>
-        <input matInput>
+        <mat-label>Decode</mat-label>
+        <textarea matInput
+                  cdkTextareaAutosize
+                  cdkAutosizeMinRows="5"
+                  ngModel
+                  name="decode"
+                  #decode="ngModel"></textarea>
       </mat-form-field>
     </div>
-    <mat-form-field appearance="fill">
-      <mat-label>Decode</mat-label>
-      <textarea matInput
-                cdkTextareaAutosize
-                cdkAutosizeMinRows="5"></textarea>
-    </mat-form-field>
-  </div>
+  </form>
 </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Password } from './password.model';
 
@@ -8,26 +9,21 @@ import { Password } from './password.model';
 export class PasswordService {
     constructor(
       private http: HttpClient,
-    ) {
-    }
+    ) {}
 
     encode(password: Password) {
       const body = {
-        password: 'password',
-        text: 'encoded text'
+        password: password.password,
+        message: password.message,
       }
-      this.http.post('http://localhost:8000/encode', body).subscribe(password => {
-        console.log(password);
-      })
+      return  this.http.post(environment.apiUrl + '/encode', body);
     }
 
     decode(password: Password) {
       const body = {
-        password: 'password',
-        text: 'decoded text'
+        password: password.password,
+        message: password.message,
       }
-      this.http.post('http://localhost:8000/decode', body).subscribe(password => {
-        console.log(password);
-      })
+      return this.http.post(environment.apiUrl + '/decode', body);
     }
 }
